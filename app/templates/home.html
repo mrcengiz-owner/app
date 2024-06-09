@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="content">
+    <div class="container">
+      <h2 class="mb-5">Ürün Listesi</h2>
+      <div class="table-responsive custom-table-responsive">
+        <form action="{% url 'create_order' %}" method="post">
+          {% csrf_token %}
+          <table class="table custom-table" id="product-table">
+            <thead>
+              <tr>  
+                <th scope="col">
+                  <label class="control control--checkbox">
+                    <input type="checkbox" class="js-check-all"/>
+                    <div class="control__indicator"></div>
+                  </label>
+                </th>
+                <th scope="col">Wählen</th>
+                <th scope="col">P-Code</th>
+                <th scope="col">Artikel</th>
+                <th scope="col">Inhalt</th>
+                <th scope="col">Firma</th>
+                <th scope="col">Menge</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for product in products %}
+              <tr scope="row">
+                <th scope="row">
+                  <label class="control control--checkbox">
+                    <input type="checkbox" name="products" value="{{ product.id }}"/>
+                    <div class="control__indicator"></div>
+                  </label>
+                </th>
+                <td></td>
+                <td>{{ product.product_code }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.size }}</td>
+                <td>{{ product.company.name }}</td> <!-- Firma adını al -->
+                <td><input type="number" class="form-control input-large" name="quantities_{{ product.id }}" value="1"></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <button type="submit" class="btn btn-success btn-large">Sipariş Ver</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#product-table').DataTable();
+    });
+  </script>
+
+  <style>
+    .input-large {
+      font-size: 16px;
+      padding: 5px;
+    }
+    .btn-large {
+      font-size: 1.25em;
+      padding: 10px 20px;
+    }
+  </style>
+{% endblock %}

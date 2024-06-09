@@ -1,0 +1,80 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Korkmaz Markt{% endblock %}</title>
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "fonts/icomoon/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="{% static "css/nav.css" %}" />
+
+  <style>
+    /* Tablo stilleri */
+    .table {
+      font-size: 16px; /* Yazı boyutunu ayarlayın */
+    }
+    .table thead th {
+      font-size: 18px; /* Tablo başlığı yazı boyutunu ayarlayın */
+      .btn {
+        font-size: 18px; /* Buton yazı boyutunu ayarlayın */
+        padding: 12px 24px; /* Buton iç boşluğunu ayarlayın */
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="{% url "home" %}" id="logo">Markt Korkmaz</a>
+      <i class="fas fa-bars" id="ham-menu"></i>
+      <ul id="nav-bar">
+        <li>
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+          <a href="{% url 'firma' %}">Firma</a>
+        </li>
+        <li>
+          <a href="{% url 'order_page' %}">Bestellungen</a>
+        </li>
+        <li>
+          <a href="{% url 'orderlist' %}">Liste bestellen</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">Abmelden</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+</body>
+
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+</div>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static "js/popper.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+<script src="{% static "js/nav.js" %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content">
+        <h2 class="mb-5">Ürün Listesi</h2>
+        <div class="table-responsive custom-table-responsive">
+            <!-- Sayfalama düğmeleri -->
+            {% if page_obj.has_other_pages %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; ilk</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">önceki</a>
+                    {% endif %}
+    
+                    <span class="current">
+                        Sayfa {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+                    </span>
+    
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">sonraki</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">son &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
+    
+            <!-- Siparişler tablosu -->
+            <table class="table custom-table">
+                <thead>
+                    <tr>  
+                        <th scope="col">Produkt-Code</th>
+                        <th scope="col">Artikel</th>
+                        <th scope="col">Menge</th>
+                        <th scope="col">Firma</th>
+                        <th scope="col">Inhalt</th>  <!-- Boyut alanı eklendi -->
+                        <th scope="col">Daten</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in page_obj %}
+                    <tr scope="row">
+                        <td>{{ order.product.product_code }}</td>
+                        <td>{{ order.product.name }}</td>
+                        <td>{{ order.quantity }}</td> <!-- Düzeltme -->
+                        <td>{{ order.company.name }}</td> <!-- Düzeltme -->
+                        <td>{{ order.size }}</td>  <!-- Boyut alanı eklendi -->
+                        <td>{{ order.created_at|date:"d/m/Y" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

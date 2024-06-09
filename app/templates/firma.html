@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <div class="container">
+     
+        <h2 class="mb-5">Firmen</h2>
+    <div class="table-responsive custom-table-responsive">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th>Name der Firma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in companies %}
+            <tr>
+                <td>{{ company.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einführung Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    
+<div class="login">
+	<h1>Einführung</h1>
+    
+    {% comment %} <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+    	<input type="text" name="username" placeholder="Benutzername"  id= "username" required="required" />
+        <input type="password" name="passpord" placeholder="Passwort" id= "password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Lass mich rein..</button>
+    </form> {% endcomment %}
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Benutzername" id="username" required="required" />
+        <input type="password" name="password" placeholder="Passwort" id="password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Lass mich rein..</button>
+    </form>
+</div>
+</body>
+</html>

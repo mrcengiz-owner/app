@@ -120,7 +120,7 @@ def download_all_orders_pdf(request):
     elements = []
 
     # Tablo başlıkları
-    data = [["Product Code", "Product Name", "Quantity", "Company", "Size", "Date"]]
+    data = [["Produkt-Code", "Artikel", "Menge", "Firma", "Inhalt", "Daten"]]
 
     # Belirli bir tarihteki tüm siparişleri al
     orders = Order.objects.filter(created_at__date=today)
@@ -168,7 +168,7 @@ def download_company_orders_pdf(request, company_id):
     elements = []
 
     # Tablo başlıkları
-    data = [["Product Code", "Product Name", "Quantity", "Company", "Size", "Date"]]
+    data = [["Produkt-Code", "Artikel", "Menge", "Firma", "Inhalt", "Daten"]]
 
     # Belirtilen firmaya ait belirli bir tarihteki siparişleri al
     orders = Order.objects.filter(company_id=company_id, created_at__date=today)

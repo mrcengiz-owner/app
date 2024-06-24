@@ -128,7 +128,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 # STATIC_ROOT='/home/mrcengiz/markt/app/static'
 # Static files directories
-STATIC_ROOT=os.path.join(BASE_DIR,'static')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 
